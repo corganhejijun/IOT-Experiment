@@ -1,2 +1,5 @@
 /Node.js/iot_web/node_modules
 /Node.js/iot_web/package-lock.json
+/Django/iot_web/my_iot/__pycache__
+/Django/iot_web/iot_web/__pycache__/*.pyc
+/Django/iot_web/my_iot/migrations

@@ -1,0 +1,27 @@
+<html>
+{% load static %}
+
+<head>
+    <script src="{% static 'javascripts/jquery-3.3.1.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'javascripts/bootstrap-3.3.7.min.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/bootstrap-3.3.7.min.css' %}">
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var i = 0;
+            $(".btn-success").click(function(){
+                i += 1;
+                $("#counter").html(i.toString());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <button class="btn btn-success">点击</button>
+    <h3 id="counter"></h3>
+</body>
+
+</html>
