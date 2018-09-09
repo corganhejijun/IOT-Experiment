@@ -25,7 +25,7 @@ SECRET_KEY = 'k&^r5fa09!t(8gi^m#6-gzqyw=h!j93$)49r5-9s5_z#x_h&+3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SESSION_ENGINE =  'django.contrib.sessions.backends.cached_db'
+
+CURRENT_TEMPERATURE = None
+CURRENT_HUMIDITY = None

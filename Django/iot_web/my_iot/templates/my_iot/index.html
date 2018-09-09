@@ -10,17 +10,34 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var i = 0;
+            var timer = null;
             $(".btn-success").click(function(){
-                i += 1;
-                $("#counter").html(i.toString());
+                $.get('/data?get=on', function(){
+                    $("#counter").html('已开始');
+                    timer = setInterval(function(){
+                        $.get('/data?recv', function(data){
+                            var result = JSON.parse(data);
+                            $("#t").html("当前温度：" + result['t']);
+                            $("#h").html("当前温度：" + result['h']);
+                        });
+                    }, 1000);
+                })
+            });
+            $(".btn-danger").click(function(){
+                $.get('/data?get=off', function(){
+                    $("#counter").html('已关闭');
+                    clearInterval(timer);
+                })
             });
         });
     </script>
 </head>
 
 <body>
-    <h1>hello world</h1>
-    <button class="btn btn-success">点击</button>
+    <h1 id="t">当前温度：{{ t }}</h1>
+    <h1 id="h">当前湿度：{{ h }}</h1>
+    <button class="btn btn-success">打开数据，并点亮LED</button>
+    <button class="btn btn-danger">关闭数据，并关闭LED</button>
     <h3 id="counter"></h3>
 </body>
 
