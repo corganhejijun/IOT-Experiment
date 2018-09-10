@@ -18,7 +18,7 @@
                         $.get('/data?recv', function(data){
                             var result = JSON.parse(data);
                             $("#t").html("当前温度：" + result['t']);
-                            $("#h").html("当前温度：" + result['h']);
+                            $("#h").html("当前湿度：" + result['h']);
                         });
                     }, 1000);
                 })

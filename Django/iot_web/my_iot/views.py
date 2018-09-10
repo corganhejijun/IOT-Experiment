@@ -26,6 +26,28 @@ def index(request):
     return render(request, 'my_iot/index.html', {'t':t, 'h':h})
 
 @csrf_exempt
+def communicate(request):
+    if 'method' in request.GET:
+        method = request.GET['method']
+        data = request.GET['data']
+        rts.get("http://127.0.0.1:3000/com" + "?data=" + data)
+        return HttpResponse("ok")
+    elif 'method' in request.POST:
+        method = request.POST['method']
+        data = request.POST['data']
+        rts.post("http://127.0.0.1:3000/com", data={'data':data})
+        return HttpResponse("ok")
+    elif 'data' in request.GET:
+        data = request.GET['data']
+        print("I'm django received get data: " + data)
+        return HttpResponse("ok")
+    elif 'data' in request.POST:
+        data = request.POST['data']
+        print("I'm django received post data: " + data)
+        return HttpResponse("ok")
+    return render(request, 'my_iot/communicate.html')
+
+@csrf_exempt
 def data(request):
     if 'data' in request.GET:
         d = json.loads(request.GET['data'].replace("'", '"'))
