@@ -21,12 +21,10 @@
 
             });
             $("#send-remote").click(function(){
-                var remoteUrl = $("#remote-page").val();
                 var text = $("#remote-server-data").val();
                 $.get("/com?method=get&data=" + text, function(){});
             });
             $("#send-remote-post").click(function(){
-                var remoteUrl = $("#remote-page").val();
                 var text = $("#remote-server-data").val();
                 $.post("/com", {method:'post',data:text}, function(){});
             });
