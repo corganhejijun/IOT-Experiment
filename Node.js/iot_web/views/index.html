@@ -7,11 +7,11 @@
   <style type="text/css">
   </style>
   <script type="text/javascript">
-    var i = 0;
     $(document).ready(function () {
       $(".btn-success").click(function(){
-        i++;
-        $("#text").html(i.toString());
+        $.post("http://127.0.0.1:3000/", {data:parseInt($("#text").html())}, function(result){
+          $("#text").html(result.data);
+        });
       });
     });
   </script>
@@ -20,7 +20,7 @@
 <body>
   <h1>Hello world</h1>
   <button class="btn btn-success">点击</button>
-  <h3 id="text"></h3>
+  <h3 id="text">0</h3>
 </body>
 
 </html>

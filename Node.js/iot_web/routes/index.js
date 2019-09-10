@@ -8,6 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.post('/', function(req, res, next){
+  var i = req.body.data;
+  console.log("get post data:" + i)
+  res.send({data: parseInt(i)+1});
+});
+
 router.get('/com', function(req, res, next){
   if (req.query.method){
     var data = req.query.data;
