@@ -9,7 +9,7 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $(".btn-success").click(function(){
-        $.post("http://127.0.0.1:3000/", {data:parseInt($("#text").html())}, function(result){
+        $.get("http://127.0.0.1:3000/", {data:parseInt($("#text").html())}, function(result){
           $("#text").html(result.data);
         });
       });

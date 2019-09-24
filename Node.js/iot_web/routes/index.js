@@ -5,6 +5,12 @@ var querystring = require('querystring');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.query.recv){
+    res.send({t:30,h:60});
+    return;
+  }
+  var data = req.query.data;
+  console.log("get data " + data);
   res.render('index');
 });
 
