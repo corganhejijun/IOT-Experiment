@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        webThread = new WebThread("http://192.168.2.131:8000/data?recv", webHandler);
+        webThread = new WebThread("http://10.0.2.2:3000/?recv=tf", webHandler);
         Thread thread = new Thread(webThread);
         thread.start();
     }

@@ -57,7 +57,7 @@ def data(request):
         settings.CURRENT_TEMPERATURE = d['t']
         settings.CURRENT_HUMIDITY = d['h']
     if 'get' in request.GET:
-        rts.get("http://192.168.137.49:5000" + "?op=" + request.GET['get'])
+        rts.get("http://192.168.137.244:5000" + "?op=" + request.GET['get'])
     if 'recv' in request.GET:
         t, h = getValue()
         return HttpResponse(json.dumps({'t':t, 'h': h}))
