@@ -1,4 +1,3 @@
-# IOT-Experiment
 ## 物联网技术集成与开发 实验
 
 需要修改Android 和 Django 服务器对应的IP地址
